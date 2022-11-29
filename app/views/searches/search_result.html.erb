@@ -1,33 +1,37 @@
-<h1>Books search for ""</h1>
-  <table class="table">
+<h2>Books search for ""</h2>
+  <table class="table table-hover table-inverse">
     <% if @range == "User" %>
-      <tbody>
-        <% @users.each do |user| %>
+      <thead>
         <tr>
           <th></th>
           <th>Name</th>
         </tr>
+      </thead>
+      <% @users.each do |user| %>
+      <tbody>
         <tr>
           <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
           <td><%= user.name %></td>
         </tr>
-        <% end %>
       </tbody>
+      <% end %>
       
     <% else %>
-      <tbody>
-        <% @books.each do |book| %>
+      <thead>
         <tr>
           <th></th>
           <th>Title</th>
           <th>Opinion</th>
         </tr>
+      </thead>
+      <% @books.each do |book| %>
+      <tbody>
         <tr>
           <td><%= image_tag user.get_profile_image, size:'50x50' %></td>
           <td><%= book.title %></td>
           <td><%= book.body %></td>
         </tr>
-        <% end %>
       </tbody>
+      <% end %>
     <% end %>
   </table>
