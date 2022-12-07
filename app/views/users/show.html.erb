@@ -10,8 +10,8 @@
       <h2>Books</h2>
       <%= render 'books/index',books: @books, user: @user %>
     
-    <h2>投稿数の前日比・前週比</h2>
-      <table>
+    <h4>投稿数の前日比・前週比</h4>
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>今日の投稿数</th>
@@ -34,7 +34,7 @@
           </tr>
         </tbody>
       </table>
-      <table>
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>今週の投稿数</th>
