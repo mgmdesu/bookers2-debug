@@ -1,0 +1,21 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Editing Group</h2>
+      <%= form_with model: @group, url: group_path do |f| %>
+      <div class="form_name">グループ名</div>
+        <%= f.text_field :name, id:"inputName", autofocus: true, class: "form_control name" %>
+        
+      <div class="form_introduciton">紹介文</div>
+        <%= f.text_area :introduction ,id:"inputIntroduction", class: "form_control introduction" %>
+      
+      <div class="form_image">グループ画像</div>
+        <%= f.file_field :image, class: "form_control-file", accept: 'image/*' %>
+      
+      <div class="form-btn mt-3">
+        <%= f.submit 'Updata Group', class: "btn btn-info" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

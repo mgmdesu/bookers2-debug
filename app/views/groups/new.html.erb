@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>Creat Group</h2>
+      <%= form_with model: @group, url: groups_path do |f| %>
+        <div class="group-name">グループ名</div>
+        <%= f.text_field :name %>
+        
+        <div class="group-introduction">紹介文</div>
+        <%= f.text_area :introduction %>
+        
+        <div class="group-image">グループ画像</div>
+        <%= f.file_field :image, accept: "image/*" %>
+        
+        <div class="group-submit mt-3">
+        <%= f.submit 'Create Group', class: "btn btn-info" %>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
