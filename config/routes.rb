@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   
   get 'search'=>'searches#search'
   
-  resources :groups, except: [:destroy]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
+    get 'join'=>'groups#join'
+  end
 end

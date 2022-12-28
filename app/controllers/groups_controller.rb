@@ -5,16 +5,6 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
   
-  def create
-    @group = Group.new(group_params)
-    @group.owner_id = current_user.id
-    if @group.save
-      redirect_to groups_path
-    else
-      render :new
-    end
-  end
-  
   def index
     @groups = Group.all
     @book = Book.new
@@ -26,6 +16,22 @@ class GroupsController < ApplicationController
     @user = current_user
     @book = Book.new
   end 
+  
+  def create
+    @group = Group.new(group_params)
+    @group.owner_id = current_user.id
+    if @group.save
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+  
+  def join
+    @group = Group.find(params[:group_id])
+    @group_users << current_user
+    redirect_to groups_path
+  end
   
   def edit
     @group = Group.find(params[:id])
