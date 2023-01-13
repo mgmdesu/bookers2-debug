@@ -1,0 +1,7 @@
+<h2>お気に入り一覧</h2>
+<% if favorite_list.present? %>
+  <% favorite_list.each do |book| %>
+    <%= book.title %>
+    <%= book.body %>
+    <% end %>
+<% end %>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-
+  
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
+    favorites = Favorite.where(user_id: current_user.id).pluck(:book_id)
+    @favorite_list = Book.find(favorites)
   end
     
   def index
