@@ -4,10 +4,10 @@
       <h3>送信が完了しました</h3>
       <h5>メールの内容</h5>
       <p class="mail-title">
-        [title] <%= @mail_title %>
+        [title] <%= @title %>
       </p>
       <p class="mail-body">
-        [text] <%= safe_join(@mail_content.split("\n"), tag(:br)) %>
+        [text] <%= safe_join(@body.split("\n"), tag(:br)) %>
       </p>
     </div>
   </div>
